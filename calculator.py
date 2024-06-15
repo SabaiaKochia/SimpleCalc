@@ -1,14 +1,18 @@
 #   Saba Kochadze
 #   Dec 28, 2023
 #   Update 1.0 June 5, 2024
+#   Update 1.1 June 14, 2024
 #   Simple Calculator
 
 
 
+from ast import Num
+from cgitb import text
 from ctypes.wintypes import RGB
 from tkinter import *
 from tkinter.tix import INTEGER
 from turtle import color
+import math
 
 
 
@@ -55,6 +59,18 @@ def power_data():
         result = result * num1_val
         
         i = i + 1
+        
+def square_root():
+
+
+    Label(Tk(), text='Sorry but the square root function is out on a smoke break right now').grid(row=0, column=0)
+    
+    
+    Label
+    
+
+    
+
     
 def clear():
 
@@ -62,18 +78,19 @@ def clear():
     num1.insert(0, "")
     num2.delete(0, END)
     num2.insert(0, "")
+
     
 
 def calculate():
     
-    lab1 = Label(window, text = 'Result' + str(result)).grid(row = i, column = 1)
+    lab1 = Label(window, text = 'Result' + str(result)).grid(row = 7, column = 1)
     
     
 #   declare a window
 window = Tk()
 
 #   Title + Shape
-window.title("Simple Calculator")
+window.title("Saba Kochadze Simple Calculator")
 window.geometry()
   
 lab1 = Label(window, text="NUM 1").grid(row=0)
@@ -85,14 +102,16 @@ num2 = Entry(window)
 num1.grid(row=0, column=1)
 num2.grid(row = 1, column = 1)
 
-Button( window, text='EXIT', command=window.quit).grid( row=5, column=3, pady=4)
-Button( window, text='ENTER', command= calculate).grid( row=5, column=1, pady=1)
-Button( window, text='CLEAR', command= clear).grid( row=3, column=3, pady=4)
-Button( window, text='+', command= add_data).grid(row=3,column=0,pady=1)
-Button( window, text='-', command= sub_data).grid(row=3,column=1,pady=1)
-Button( window, text='x', command= mul_data).grid(row=4,column=0,pady=1)
-Button( window, text='/', command= div_data).grid(row=4,column=1,pady=1)
-Button( window, text='^', command= power_data).grid(row=5,column=0,pady=1)
+Button( window, text='EXIT',fg='black' ,bg='light blue', command=window.quit).grid( row=6, column=2)
+Button( window, text='=',fg='black' ,bg='light blue',width= 5, command= calculate).grid( row=6, column=1)
+Button( window, text='CLEAR',fg='black' ,bg='light blue', command= clear).grid( row=5, column=1)
+Button( window, text='+',fg='black' ,bg='orange', width= 5, command= add_data).grid(row=3,column=0)
+Button( window, text='-',fg='black' ,bg='orange',width= 5, command= sub_data).grid(row=3,column=1)
+Button( window, text='x',fg='black' ,bg='orange',width= 5, command= mul_data).grid(row=4,column=0)
+Button( window, text='/',fg='black' ,bg='orange',width= 5, command= div_data).grid(row=4,column=1)
+Button( window, text='^',fg='black' ,bg='orange',width= 5, command= power_data).grid(row=5,column=0)
+Button( window, text='Sqrt()',fg='black' ,bg='orange',width= 5, command= square_root).grid(row=6,column=0)
+
 
 #Allows the grid to adjust as it is reshaped
 
