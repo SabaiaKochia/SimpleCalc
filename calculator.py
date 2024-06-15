@@ -14,7 +14,12 @@ from tkinter.tix import INTEGER
 from turtle import color
 import math
 
-
+def on_validate(P):
+    # Validate function to allow only integers and an optional minus sign
+    if P.isdigit() or (P == "-" and len(num1.get()) == 0):
+        return True
+    else:
+        return False
 
 def add_data():
     global result 
@@ -96,8 +101,9 @@ window.geometry()
 lab1 = Label(window, text="NUM 1").grid(row=0)
 lab2 = Label(window, text="NUM 2").grid(row=1)
 
-num1 = Entry(window)
-num2 = Entry(window)
+vcmd = window.register(on_validate)
+num1 = Entry(window, validate="key", validatecommand=(vcmd, '%P'))
+num2 = Entry(window, validate="key", validatecommand=(vcmd, '%P'))
 
 num1.grid(row=0, column=1)
 num2.grid(row = 1, column = 1)
