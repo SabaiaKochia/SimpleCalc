@@ -6,13 +6,14 @@
 
 
 
-from ast import Num
-from cgitb import text
-from ctypes.wintypes import RGB
 from tkinter import *
 from tkinter.tix import INTEGER
-from turtle import color
 import math
+
+def test_dummy():
+    pass
+
+
 
 def on_validate(P):
     # Validate function to allow only integers and an optional minus sign
